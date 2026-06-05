@@ -10,13 +10,13 @@ SwiftStore is an Inventory Management System divided into three distinct user ro
 2. **Customer Portal:** A shopping interface where customers can browse available stock, add items to a dynamic shopping cart, and perform checkout transactions.
 3. **Vendor Fulfillment Portal:** A dedicated dashboard for vendors to view pending restock requests sent by the Admin and fulfill them, automatically injecting stock back into the database.
 
-## System Architecture & Design Methodologies
+## Code Architecture & Object Oriented Design
 
 This project implements rigorous software engineering and Object-Oriented Programming methodologies:
 
 * **Separation of Concerns:** Zero SQL queries exist in the UI code. All database logic (`SELECT`, `INSERT`, `UPDATE`) is completely encapsulated inside the `DatabaseManager` class.
-* **Encapsulation (Data Hiding):** Data models (like `CartItem`) are strictly defined as `class` objects with `private` member variables, accessed only via secure `public` Getter and Setter methods.
-* **Class Methods (Slots):** Bypasses advanced C++11 lambdas in favor of strict class-member slot methods for handling UI signals (button clicks, text changes).
+* **Encapsulation (Data Hiding):** Data models are strictly defined as `class` objects with `private` member variables, accessed only via secure `public` Getter and Setter methods.
+* **Class Methods (Slots):** Bypasses advanced C++11 lambdas in favor of strict class member slot methods for handling UI signals (button clicks, text changes).
 * **Defensive Programming:** Implements SQL database transactions (`db.transaction()`, `db.commit()`, `db.rollback()`) and `try/catch` exception handling to prevent database corruption during checkout and fulfillment phases.
 
 ## How to Build and Run
@@ -51,4 +51,3 @@ This project implements rigorous software engineering and Object-Oriented Progra
    * On Linux/Mac: `./OOP_Project`
 
 ---
-*Built for learning, re-engineered for simplicity.*
