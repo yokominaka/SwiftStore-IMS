@@ -1,0 +1,18 @@
+# CMake Build Directory
+build/
+
+# Database file (we don't want to upload the local database)
+inventory_system.db
+
+# IDE and Editor files
+.vscode/
+.vs/
+*.user
+*.suo
+
+# Compiled objects and executables
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
