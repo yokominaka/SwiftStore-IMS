@@ -50,4 +50,14 @@ This project implements rigorous software engineering and Object-Oriented Progra
    * On Windows: `OOP_Project.exe`
    * On Linux/Mac: `./OOP_Project`
 
+### Default Login Credentials
+
+Upon running the application for the first time, a default administrator account is automatically created.
+
+* **Username:** `admin`
+* **Password:** `admin123`
+* **Role:** Admin
+
+**Note:** Log in with this account first. From the Admin Dashboard, you can register new Customer and Vendor accounts to test the other portals!
+
 ---
