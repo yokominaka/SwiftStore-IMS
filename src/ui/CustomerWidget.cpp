@@ -204,6 +204,7 @@ void CustomerWidget::processCheckout(){
         }
     } catch (const std::exception &e){
         db.rollback();//undo everything if any part failed
+        // dxtguhj
         QMessageBox::critical(this, "Transaction Error", e.what()); // show an error message to the user with the details of the exception that was caught. e.what() returns a C-style string describing the error, which is displayed in the critical message box.
     }
 }
