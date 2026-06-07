@@ -3,8 +3,12 @@
 #include<QSqlError>
 
 DatabaseManager::DatabaseManager(){
-    db=QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("inventory_system.db");
+    if(QSqlDatabase::contains(QSqlDatabase::defaultConnection)){
+        db=QSqlDatabase::database(); 
+    } else{
+        db=QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName("inventory_system.db");
+    }
 }
 
 bool DatabaseManager::openDatabase(){
