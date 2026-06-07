@@ -248,7 +248,7 @@ QWidget *AdminWidget::createUsersPage()
     userFormLayout->addRow("Username:", newUserField);
     userFormLayout->addRow("Password:", newPassField);
     userFormLayout->addRow("Role:", roleCombo);
-
+    //
     btnLayout->addStretch();
     btnLayout->addWidget(btnDeleteUser);
     btnLayout->addWidget(btnAddUser);
