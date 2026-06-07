@@ -180,8 +180,11 @@ QWidget *AdminWidget::createReportsPage()
 
     layout->addWidget(new QLabel("<h3> Recent Transactions </h3>"));
 
-    salesModel = new QSqlTableModel(this); // explain syntax: we create a new QSqlTableModel to represent the "sales" table from the database. The constructor takes 'this' as the parent, which means the model will be automatically deleted when the AdminWidget is destroyed.
+    salesModel = new QSqlRelationalTableModel(this); // explain syntax: we create a new QSqlRelationalTableModel to represent the "sales" table from the database. The constructor takes 'this' as the parent, which means the model will be automatically deleted when the AdminWidget is destroyed.
     salesModel->setTable("sales");
+    salesModel->setRelation(1, QSqlRelation("products", "id", "name")); // explain syntax: we set up a relation for column 1 of the sales model, which corresponds to the product_id field. We tell it that this field is a foreign key that references the "id" field in the "products" table, and that when we display this field, we want to show the "name" from the products table instead of the raw id number.
+    salesModel->setHeaderData(1, Qt::Horizontal, "Product Name");
+    salesModel->select();
 
     QTableView *salesView = new QTableView();
     salesView->setModel(salesModel);

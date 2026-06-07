@@ -5,6 +5,7 @@
 #include <QStackedWidget>
 #include <QPushButton>
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 #include <QTableView>
 #include <QSortFilterProxyModel>
 #include <QLineEdit>
@@ -52,8 +53,8 @@ private:
     // Database Models
     QSqlTableModel *userModel;
     QSqlTableModel *inventoryModel;
+    QSqlRelationalTableModel *salesModel;
     QSortFilterProxyModel *proxyModel;
-    QSqlTableModel *salesModel;
     
     void setupUI();
     void refreshReportsData();
