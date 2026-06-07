@@ -92,7 +92,7 @@ void CustomerWidget::addToCart(){
     int id = productModel->index(row, 0).data().toInt();//productModel is a pointer to a QSqlTableModel, which represents the data from the "products" table in the database. index(row, 0) creates a QModelIndex that points to the cell at the specified row and column (column 0 is typically the ID column). data() retrieves the data stored in that cell, which is expected to be the product ID. toInt() converts that data to an integer type.
     QString name = productModel->index(row, 1).data().toString();
     double price = productModel->index(row,3).data().toDouble();
-    int availableQty= productModel->index(row,4).data().toInt();
+    int availableQty= productModel->index(row,5).data().toInt();
 
     //ask user for quantity
     bool ok;
