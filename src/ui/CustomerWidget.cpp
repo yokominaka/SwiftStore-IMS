@@ -74,6 +74,7 @@ void CustomerWidget::setupUI(){
 
     cartLayout->addWidget(cartList);
     cartLayout->addWidget(totalLabel);
+    cartLayout->addWidget(btnRemove);
     cartLayout->addWidget(btnCheckout);
 
     //add to main layout
