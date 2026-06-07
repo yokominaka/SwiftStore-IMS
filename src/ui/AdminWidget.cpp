@@ -159,7 +159,7 @@ QWidget *AdminWidget::createDashboardPage()
 {
     QWidget *page = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout(page);
-    layout->addWidget(new QLabel("<h1>Welcome, Admin</h1><p>Today's Revenue: $0.00</p>"));
+    layout->addWidget(new QLabel("<h1>Welcome, Admin</h1><p>Manage your inventory, users, and reports from the sidebar.</p>"));
     layout->addStretch();
     return page;
 }
@@ -337,7 +337,7 @@ void AdminWidget::onRequestStockClicked(){
     QString productName=proxyModel->index(row,1).data().toString();
 
     bool ok;
-    int qty=QInputDialog::getInt(this, "Purchase Request", QString("how many units of '&1' do you want to request from the vendor?").arg(productName),50,1,10000,1,&ok);
+    int qty=QInputDialog::getInt(this, "Purchase Request", QString("How many units of '%1' do you want to request from the vendor?").arg(productName),50,1,10000,1,&ok);
 
     if(ok&& qty >0){
         DatabaseManager dbManager;
