@@ -231,14 +231,14 @@ QWidget *AdminWidget::createUsersPage()
     QPushButton *btnDeleteUser = new QPushButton("Delete Selected User");
     btnDeleteUser->setStyleSheet("background-color:#e74c3c; color: white; padding: 8px;");
 
-    QLineEdit* newUserField=new QLineEdit();
+    newUserField=new QLineEdit();
     newUserField->setPlaceholderText("New username");
 
-    QLineEdit* newPassField=new QLineEdit();
+    newPassField=new QLineEdit();
     newPassField->setPlaceholderText("New password");
     newPassField->setEchoMode(QLineEdit::Password);
 
-    QComboBox* roleCombo=new QComboBox();
+    roleCombo=new QComboBox();
     roleCombo->addItems({"Customer","Vendor","Admin"});
 
     QPushButton* btnAddUser=new QPushButton("Add User");
