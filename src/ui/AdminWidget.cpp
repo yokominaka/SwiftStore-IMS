@@ -131,18 +131,18 @@ QWidget *AdminWidget::createInventoryPage()
 
     // --- The view ---
 
-    QTableView *view = new QTableView(this);
-    view->setModel(proxyModel);                                           // important: view now looks at  the proxy model, not the original model
-    view->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch); // make columns stretch to fill available space
+    inventoryView = new QTableView(this);
+    inventoryView->setModel(proxyModel);                                           // important: view now looks at  the proxy model, not the original model
+    inventoryView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch); // make columns stretch to fill available space
 
 
-    // view->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    view->setAlternatingRowColors(true);
-    view->setStyleSheet("QTableView { background-color: #2d2d2d; color: white; }"
+    // inventoryView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    inventoryView->setAlternatingRowColors(true);
+    inventoryView->setStyleSheet("QTableView { background-color: #2d2d2d; color: white; }"
                         "QTableView::item:selected { background-color: #34495e; }"
                         "QHeaderView::section { background-color: #1f1f1f; color: white; padding: 6px; }");
 
-    layout->addWidget(view);
+    layout->addWidget(inventoryView);
 
     connect(searchBar, &QLineEdit::textChanged, proxyModel, &QSortFilterProxyModel::setFilterFixedString);
     connect(btnAddProduct, &QPushButton::clicked, this, &AdminWidget::onAddProductClicked);

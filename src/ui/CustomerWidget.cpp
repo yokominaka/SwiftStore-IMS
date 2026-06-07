@@ -65,6 +65,10 @@ void CustomerWidget::setupUI(){
     totalLabel = new QLabel("<b> Total : $0.00</b>");
     totalLabel->setStyleSheet("font-size: 18px; color: #2c3e50;");
 
+    btnRemove= new QPushButton("Remove Selected Item");
+    btnRemove->setStyleSheet("background-color: #e74c3c; color: white; padding: 12px; font-weight: bold; font-size: 14px;");
+    
+    
     btnCheckout =new QPushButton("Proceed to checkout");
     btnCheckout->setStyleSheet("background-color: #2ecc71; color: white; padding: 12px; font-weight: bold; font-size: 14px;");
 
@@ -80,6 +84,7 @@ void CustomerWidget::setupUI(){
     connect(btnAdd, &QPushButton::clicked, this, &CustomerWidget::addToCart);
     connect(btnCheckout, &QPushButton::clicked,this, &CustomerWidget::processCheckout);
     connect(btnLogout, &QPushButton::clicked, this,&CustomerWidget::onLogoutClicked);
+    connect(btnRemove,&QPushButton::clicked,this, &CustomerWidget::removeFromCart);
 }
 
 void CustomerWidget::addToCart(){
@@ -212,4 +217,15 @@ void CustomerWidget::onLogoutClicked(){
     shoppingCart.clear();
     updateCartUI();
     emit logoutRequested(); // this emits the logoutRequested signal, which can be connected to a slot in the MainWindow to handle the logout process, such as showing the login screen again.
+}
+
+void CustomerWidget::removeFromCart(){
+    int row=cartList->currentRow();
+    if(row<0){
+        QMessageBox::warning(this,"Select item","Please select an item from the cart to remove.");
+        return;
+
+    }
+    shoppingCart.erase(shoppingCart.begin() + row); // this removes the item at the specified index (row) from the shoppingCart vector. shoppingCart.begin() returns an iterator pointing to the first element of the vector, and adding row to it gives an iterator pointing to the element that corresponds to the selected item in the cartList. erase() then removes that element from the vector, effectively updating the shopping cart to reflect the removal of the item.
+    updateCartUI();
 }

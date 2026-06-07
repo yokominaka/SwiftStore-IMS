@@ -25,6 +25,7 @@ private slots:
     void addToCart();
     void processCheckout();
     void onLogoutClicked();
+    void removeFromCart();
 private:
     QSqlTableModel *productModel;
     QTableView *catalogView;
@@ -32,6 +33,7 @@ private:
     QListWidget *cartList;
     QLabel *totalLabel; // shows total price of items in cart
     QPushButton *btnCheckout;
+    QPushButton *btnRemove;
     //vector syntax: std::vector<Type> name;
     
     std::vector<CartItem> shoppingCart; // vector to hold items in cart. 
